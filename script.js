@@ -53,26 +53,6 @@ video.addEventListener('play', () => {
       //faceapi.draw.drawDetections(canvas, resizedDetections);
       faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
       //faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
-
-      // //parsing the landmarks correctly
-      // var landmarks = resizedDetections['landmarks']._positions;
-
-
-      // //adding canvas to draw over the face
-      // var ctx = canvas.getContext("2d");
-
-
-      // //looping over landmarks to draw the canvas
-      // for (var i = 0; i < landmarks.length; i++) {
-      //   var x_val = landmarks[i]._x;
-      //   var y_val = landmarks[i]._y;
-      //   ctx.beginPath();
-      //   console.log("x: ", x_val, " ; y: ", y_val);
-      //   ctx.arc(x_val, y_val, 1, 0, Math.PI * 2, true);
-      //   ctx.fillStyle = "green";
-      //   ctx.stroke();
-      //   ctx.closePath();
-      // }
     }
     
   }, 1000);
