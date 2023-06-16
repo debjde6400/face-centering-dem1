@@ -28,13 +28,13 @@ video.addEventListener('play', () => {
       const resizedDetections = faceapi.resizeResults(detection, displaySize);
       const landmarks = detection.landmarks;
       const jawPoints = landmarks.getJawOutline().map(o => ({ x: o.x, y: o.y }));
-      
+
       console.log("Jaw points :: ", jawPoints);
       console.log("Median :: ", jawPoints[8]);
       console.log("Horizontal diff 1 :: ", jawPoints[8].x - jawPoints[7].x);
       console.log("Horizontal diff 2 :: ", jawPoints[9].x - jawPoints[8].x);
 
-      const horiz_diff_component = jawPoints[9].x + jawPoints[7].x - 2 * jawPoints[8].x;
+      const horiz_diff_component = Math.abs(jawPoints[9].x + jawPoints[7].x - 2 * jawPoints[8].x);
       //console.log("Horizontal diff component :: ", horiz_diff_component);
 
       if(horiz_diff_component < 1) {
@@ -54,6 +54,6 @@ video.addEventListener('play', () => {
       faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
       //faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
     }
-    
-  }, 1000);
+
+  }, 5000);
 })
